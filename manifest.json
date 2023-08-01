@@ -3,6 +3,10 @@
     "name": "Reading time",
     "version": "1.0",
     "description": "Add the reading time to Chrome Extension documentation articles",
+    "permissions": ["activeTab", "scripting"],
+    "action": {
+        "default_popup": "popup.html"
+    },
     "icons": {
         "16": "images/icon-16.png",
         "32": "images/icon-32.png",
@@ -12,10 +16,7 @@
     "content_scripts": [
         {
           "js": ["scripts/content.js"],
-          "matches": [
-            "https://developer.chrome.com/docs/extensions/*",
-            "https://developer.chrome.com/docs/webstore/*"
-          ]
+          "matches": ["https://docs.google.com/*"]
         }
     ]
 
