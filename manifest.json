@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Reading time",
+    "name": "Dark Mode",
     "version": "1.0",
     "description": "Add the reading time to Chrome Extension documentation articles",
     "permissions": ["activeTab", "scripting"],
@@ -16,8 +16,7 @@
     "content_scripts": [
         {
           "js": ["scripts/content.js", "popup.js"],
-          "matches": ["*://docs.google.com/document/*"],
-          "css" : ["darkmode.css"]
+          "matches": ["*://docs.google.com/document/*"]
         }
     ]
 
