@@ -1,4 +1,5 @@
 // Function to handle toggle button change
+var buttontog = false;
 function handleToggle() {
     const toggleButton = document.getElementById('toggleButton');
     const statusDiv = document.getElementById('status');

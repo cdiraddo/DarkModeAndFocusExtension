@@ -1,22 +1,51 @@
-const article = document.querySelector("article");
+//Get URl
+const site = window.location.hostname
 
-// `document.querySelector` may return null if the selector doesn't match anything.
-if (article) {
-  const text = article.textContent;
-  const wordMatchRegExp = /[^\s]+/g; // Regular expression
-  const words = text.matchAll(wordMatchRegExp);
-  // matchAll returns an iterator, convert to array to get word count
-  const wordCount = [...words].length;
-  const readingTime = Math.round(wordCount / 200);
-  const badge = document.createElement("p");
-  // Use the same styling as the publish information in an article's header
-  badge.classList.add("color-secondary-text", "type--caption");
-  badge.textContent = `⏱️ ${readingTime} min read`;
+// alert("Javascript injected into " + site)
 
-  // Support for API reference docs
-  const heading = article.querySelector("h1");
-  // Support for article docs with date
-  const date = article.querySelector("time")?.parentNode;
+//Custom CSS Func
+const Add_Custom_Style = css => document.head.appendChild(document.createElement("style")).innerHTML = css
 
-  (date ?? heading).insertAdjacentElement("afterend", badge);
+//JS For Docs
+if (site.includes("docs.google.com")) {
+  alert("injecting css")
+  // document.getElementById().style.property =
+  Add_Custom_Style(`
+
+    * {
+      background_color: #0F79C6 !important;
+    }
+
+    .docs-grille-gm3.docs-gm .docs-material #docs-toolbar-wrapper {
+      background-color: #202124;
+    }
+    .docs-grille-gm3 #docs-chrome:not(.docs-hub-chrome) {
+      background: #202124;
+    }
+
+    .kix-appview-editor {
+      background-color: #202124 !important;
+    }
+
+    .kix-canvas-tile-content {
+      background: transparent !important;
+    }
+
+
+
+
+
+  `)
+
+
+
 }
+
+    // body,
+    // .docs-gm #docs-editor,
+    // .docs-gm #docs-editor-container,
+    // .docs-gm:not(.docs-grille-gm3) .kix-appview-editor,
+    // .apps-shortcutshelpcontentimpl-container,
+    // .apps-shortcutshelppopup {
+    //   background: #202124 !important;
+    // }

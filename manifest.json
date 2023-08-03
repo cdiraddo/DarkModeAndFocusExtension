@@ -15,8 +15,9 @@
     },
     "content_scripts": [
         {
-          "js": ["scripts/content.js"],
-          "matches": ["https://docs.google.com/*"]
+          "js": ["scripts/content.js", "popup.js"],
+          "matches": ["*://docs.google.com/document/*"],
+          "css" : ["darkmode.css"]
         }
     ]
 
